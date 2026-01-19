@@ -387,3 +387,101 @@ footer {
     width: 40px;
     height: 40px;
 }
+
+/* --- Sección FAQ (Preguntas Frecuentes) --- */
+.faq-section {
+    margin: 80px 0;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background-color: white;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.faq-item summary {
+    padding: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    list-style: none; /* Quita el triángulo por defecto */
+    position: relative;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none; /* Oculta marcador en Chrome/Safari */
+}
+
+.faq-item summary::after {
+    content: '+';
+    font-size: 1.5rem;
+    color: var(--rosa-salmon);
+    transition: transform 0.3s ease;
+    font-weight: 300;
+}
+
+.faq-item[open] summary::after {
+    transform: rotate(45deg); /* Gira el + para convertirlo en x */
+}
+
+.faq-item p {
+    padding: 0 20px 20px 20px;
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+    border-top: 1px solid #f0f0f0;
+    overflow: hidden; /* Necesario para que el texto no se salga mientras crece la caja */
+}
+
+/* Animación suave al abrir la respuesta */
+.faq-item[open] p {
+    animation: faqOpen 0.5s ease-out forwards;
+}
+
+/* Animación suave al cerrar la respuesta */
+.faq-item[open].closing p {
+    animation: faqClose 0.5s ease-in forwards;
+}
+
+@keyframes faqOpen {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+        max-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 300px; /* Altura suficiente para que quepa el texto */
+        padding-bottom: 20px;
+    }
+}
+
+@keyframes faqClose {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 300px;
+        padding-bottom: 20px;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-10px);
+        max-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
