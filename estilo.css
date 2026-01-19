@@ -1,0 +1,389 @@
+:root {
+    --azul-claro: #b5dce3;
+    --rosa-salmon: #f7b09e;
+    --texto: #333;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    color: var(--texto);
+}
+
+/* --- Estilos del Header (Logo a la izquierda) --- */
+header {
+    padding: 20px 0;
+    background-color: white;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative; /* Esto permite que el logo se ubique respecto a este contenedor */
+}
+
+/* Ajustamos el wrapper para que sea el que centra el contenido */
+.brand-wrapper {
+    display: flex;
+    justify-content: center; /* Centra el bloque de texto en el medio */
+    align-items: center;
+    min-height: 100px;
+}
+
+.logo-img {
+    position: absolute; /* Sacamos el logo del flujo para que no empuje al texto */
+    left: 40px;         /* Lo pegamos a la izquierda del contenedor */
+    max-width: 90px;
+    height: auto;
+}
+
+.brand-text {
+    text-align: center; /* Centra el H1 y la Tagline entre sí */
+}
+
+.brand-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; /* Tamaño elegante */
+    margin: 0;
+    letter-spacing: 3px;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.tagline {
+    margin: 5px 0 0 0;
+    font-size: 0.9rem;
+    color: #f7b09e; /* El rosa de tu logo */
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+/* --- Resto del diseño --- */
+.hero {
+    background-color: var(--azul-claro);
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero h2 {
+    font-family: 'Playfair Display', serif;
+    color: #446a71;
+    padding: 0 20px;
+}
+
+/* Animación para el texto principal */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h2 {
+            opacity: 0; /* Comienza invisible */
+            animation: fadeInUp 1.2s ease-out forwards; /* Duración de 1.2 segundos */
+        }
+
+.container {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: 'Playfair Display', serif;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Mueve la tarjeta hacia arriba */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15); /* Aumenta la sombra */
+}
+
+.card-img {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    background-color: #eee;
+}
+
+.card-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.card-cta {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.card-cta:hover {
+    background-color: #128C7E;
+    transform: translateY(-2px);
+}
+
+.cta-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.cta-button {
+    background-color: var(--rosa-salmon);
+    background-color: #25D366;
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    display: inline-flex;       /* Para alinear icono y texto */
+    align-items: center;        /* Centrado vertical */
+    gap: 10px;                  /* Espacio entre icono y texto */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suaviza la animación */
+}
+
+.cta-button:hover {
+    transform: scale(1.05);     /* Crece un 5% */
+    transform: translateY(-5px); /* Se eleva suavemente sin deformar el logo */
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4); /* Sombra suave color verde */
+    background-color: #128C7E;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    background: #fafafa;
+    margin-top: 50px;
+}
+
+/* --- Sección Galería Mágica (Adaptada) --- */
+#galeria-rosas {
+    position: relative;
+    height: 600px;
+    background-color: #1a1919; /* Fondo oscuro para resaltar las fotos */
+    overflow: hidden;
+    margin-top: 60px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+#galeria-rosas .section-title {
+    color: white;
+    position: relative;
+    z-index: 20;
+    padding-top: 30px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+#image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Permite hacer clic a través del contenedor si fuera necesario */
+}
+
+.image-item {
+    position: absolute;
+    width: 120px;
+    height: auto;
+    border-radius: 10px;
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+}
+
+.image-item:hover {
+    animation-play-state: paused;
+    transform: scale(1.1);
+    z-index: 15;
+}
+
+/* Lightbox Overlay */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.lightbox-image {
+    max-width: 90%;
+    max-height: 90%;
+    border: 2px solid white;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+/* Animaciones */
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(30px, 30px); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes rotateAfterFloat {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* --- Estilos de la Tarjeta Central (Tilt Card) --- */
+.center-card-container {
+    position: absolute;
+    top: 55%; /* Un poco más abajo del título */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5; /* Debajo de las fotos flotantes pero encima del fondo */
+    perspective: 1200px;
+}
+
+.tilt-card {
+    width: 220px;
+    height: 300px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease-in-out, box-shadow 0.3s ease;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.tilt-card:hover {
+    transform: scale(1.1) rotateX(15deg) rotateY(15deg);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.6);
+}
+
+.tilt-card-front,
+.tilt-card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease;
+}
+
+.tilt-card-back {
+    transform: rotateY(180deg);
+}
+
+.tilt-card:hover .tilt-card-front {
+    transform: rotateY(180deg);
+}
+
+.tilt-card:hover .tilt-card-back {
+    transform: rotateY(360deg);
+}
+
+/* --- Redes Sociales en Footer --- */
+.social-links {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icon {
+    color: #555;
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block;
+}
+
+.social-icon:hover {
+    color: #E1306C; /* Color oficial de Instagram */
+    transform: scale(1.2);
+}
+
+/* --- Sección Por Qué Elegirnos --- */
+.why-choose {
+    margin: 80px 0;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.feature-item {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0; /* Comienza invisible para la animación */
+    animation: fadeInUp 0.8s ease-out forwards; /* Usa la animación existente */
+    border: 1px solid #f0f0f0;
+}
+
+.feature-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(247, 176, 158, 0.2); /* Sombra color salmón suave */
+    border-color: var(--rosa-salmon);
+}
+
+.feature-icon {
+    color: var(--rosa-salmon);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+    background-color: #fff0eb; /* Fondo circular suave */
+    width: 80px;
+    height: 80px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.feature-item:hover .feature-icon {
+    transform: scale(1.2); /* El icono crece al pasar el mouse */
+}
+
+.feature-icon svg {
+    width: 40px;
+    height: 40px;
+}
