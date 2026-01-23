@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZAISA - Detalles Eternos</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital@0;1&family=IBM+Plex+Mono:ital,wght@1,500&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
@@ -30,31 +31,8 @@
     <main class="container">
         <h2 class="section-title">Nuestras Creaciones</h2>
         
-        <div class="grid">
-            <div class="card">
-                <div class="card-img" style="background-image: url('imagenes/rosa1.jpeg');"></div>
-                <div class="card-info">
-                    <h3>Ramo Clásico Rosa</h3>
-                    <a href="" class="card-cta" target="_blank">Pedir por WhatsApp</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img" style="background-image: url('imagenes/rosa18.jpeg');"></div>
-                <div class="card-info">
-                    <h3>Ramo Azul Cielo</h3>
-                    <a href="" class="card-cta" target="_blank">Pedir por WhatsApp</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img" style="background-image: url('imagenes/rosa5.jpeg');"></div>
-                <div class="card-info">
-                    <h3>Edición Especial</h3>
-                    <a href="" class="card-cta" target="_blank">Pedir por WhatsApp</a>
-                </div>
-            </div>
-        </div>
+        <div class="grid" id="grid-productos"></div>
 
-        <!-- Sección Valor Agregado (Por qué elegirnos) -->
         <section class="why-choose">
             <h2 class="section-title">¿Por qué elegir flores de listón?</h2>
             <div class="features-grid">
@@ -82,28 +60,23 @@
             </div>
         </section>
 
-        <!-- Sección Galería Mágica -->
         <section id="galeria-rosas">
             <h2 class="section-title">Galería de Rosas</h2>
-            
-            <!-- Tarjeta Central Animada -->
             <div class="center-card-container">
                 <div class="tilt-card">
                     <div class="tilt-card-front" style="background-image: url('imagenes/rosa1.jpeg');"></div>
                     <div class="tilt-card-back" style="background-image: url('imagenes/rosa2.jpeg');"></div>
                 </div>
             </div>
-
             <div id="image-container"></div>
         </section>
 
-        <!-- Sección Preguntas Frecuentes (FAQ) -->
         <section class="faq-section">
             <h2 class="section-title">Preguntas Frecuentes</h2>
             <div class="faq-container">
                 <details class="faq-item">
                     <summary>¿Con cuántos días de anticipación debo pedir?</summary>
-                    <p>Como cada ramo es hecho a mano con dedicación, te recomendamos realizar tu pedido con al menos <strong>3 a 5 días de anticipación</strong>. Para fechas especiales (como San Valentín o Día de las Madres), sugerimos pedir con 2 semanas de antelación.</p>
+                    <p>Como cada ramo es hecho a mano con dedicación, te recomendamos realizar tu pedido con al menos <strong>3 a 5 días de anticipación</strong>. Para fechas especiales, sugerimos pedir con 2 semanas de antelación.</p>
                 </details>
                 <details class="faq-item">
                     <summary>¿Hacen envíos a domicilio o entregas en puntos medios?</summary>
@@ -115,15 +88,6 @@
                 </details>
             </div>
         </section>
-
-        <!--<div class="cta-container">
-            <a href="https://wa.me/522871251442" class="cta-button">
-                <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-                </svg>
-                Pedir por WhatsApp
-            </a>
-        </div>-->
     </main>
 
     <footer>
@@ -135,76 +99,196 @@
         <p>&copy; 2026 ZAISA Detalles Eternos</p>
     </footer>
 
-    <!-- Script para la Galería -->
     <script>
-        const imageContainer = document.getElementById("image-container");
-        
-        // Generar rutas para 20 imágenes locales (rosa1.png a rosa20.png)
-        const imagePaths = [];
-        for (let i = 1; i <= 15; i++) {
-            imagePaths.push(`imagenes/rosa${i}.jpeg`);
+        // --- 1. LÓGICA DE LA ANIMACIÓN (CONTROLADOR GLOBAL) ---
+        class RadioButtonEffect {
+            constructor(radioBtnGroups) {
+                this.previousRadioBtn = null;
+                
+                radioBtnGroups.forEach((group) => {
+                    const radioBtn = gsap.utils.selector(group)("input[type='radio']")[0];
+                    
+                    radioBtn.addEventListener("change", () => {
+                        const nodes = this.getNodes(radioBtn);
+                        
+                        // Si había uno seleccionado antes (aunque sea en otra tarjeta), lo apagamos
+                        if (this.previousRadioBtn && this.previousRadioBtn !== radioBtn) {
+                            this.changeEffect(this.getNodes(this.previousRadioBtn), false);
+                        }
+                        
+                        // Encendemos el nuevo
+                        this.changeEffect(nodes, true);
+                        
+                        // Guardamos este como el "nuevo anterior"
+                        this.previousRadioBtn = radioBtn;
+                        
+                        // Actualizar WhatsApp
+                        updateWhatsAppLink(radioBtn);
+                    });
+                });
+            }
+
+            getNodes(radioBtn) {
+                const container = radioBtn.closest(".radio-btn-group");
+                return [
+                    gsap.utils.shuffle(gsap.utils.selector(container)(".blue rect")),
+                    gsap.utils.shuffle(gsap.utils.selector(container)(".pink rect"))
+                ];
+            }
+
+            changeEffect(nodes, isChecked) {
+                gsap.to(nodes[0], {
+                    duration: 1.6,
+                    ease: "elastic.out(1, 0.3)",
+                    xPercent: isChecked ? "100" : "-100",
+                    stagger: 0.01,
+                    overwrite: true,
+                    delay: 0.13
+                });
+                gsap.to(nodes[1], {
+                    duration: 1.6,
+                    ease: "elastic.out(1, 0.3)",
+                    xPercent: isChecked ? "100" : "-100",
+                    stagger: 0.01,
+                    overwrite: true
+                });
+            }
         }
 
-        // Crear elementos de imagen
-        imagePaths.forEach((path) => {
+        // --- 2. GENERADOR DE TARJETAS ---
+        const gridContainer = document.getElementById("grid-productos");
+        
+        const productos = [
+            { id: 1, titulo: "Ramo Clásico Rosa" },
+            { id: 2, titulo: "Ramo Azul Cielo" },
+            { id: 3, titulo: "Edición Especial" },
+            { id: 4, titulo: "Ramo Pasión" },
+            { id: 5, titulo: "Azul Real con Mariposas" },
+            { id: 6, titulo: "Edición Princesa Tiana" },
+            { id: 7, titulo: "Especial Graduación" },
+            { id: 8, titulo: "Detalle Romántico" },
+            { id: 9, titulo: "Amarillo Solar" },
+            { id: 10, titulo: "Cuadros Personalizados" },
+            { id: 11, titulo: "Bicolor Intenso" },
+            { id: 12, titulo: "Tejidos & Crochet" },
+            { id: 13, titulo: "Ramo Buchón Billetes" },
+            { id: 14, titulo: "Ramo Luminoso LED" },
+            { id: 15, titulo: "Diseño Sorpresa" },
+            { id: 16, titulo: "Ramo Elegancia" },
+            { id: 17, titulo: "Edición Deluxe" },
+            { id: 18, titulo: "Detalle Único" },
+            { id: 19, titulo: "Colección Nueva" },
+            { id: 20, titulo: "Pedido Especial" }
+        ];
+
+        // Plantilla SVG reutilizable
+        const svgBars = `
+            <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+                <g class="pink">
+                    ${[0,5,10,15,20,25,30,35,40,45].map(y => `<rect x="-100%" y="${y}" width="100%" height="5" />`).join('')}
+                </g>
+                <g class="blue">
+                    ${[0,5,10,15,20,25,30,35,40,45].map(y => `<rect x="-100%" y="${y}" width="100%" height="5" />`).join('')}
+                </g>
+            </svg>
+        `;
+
+        // Generar HTML
+        let allCardsHTML = "";
+        productos.forEach(prod => {
+            let botonesHTML = "";
+            
+            // Excluir ID 10 (Cuadros) y ID 13 (Billetes) de tener botones
+            if (prod.id !== 10 && prod.id !== 13) {
+                const cantidades = ["10", "15", "20", "25", "Pers."]; 
+                
+                // Aquí agregamos la frase "Elige la cantidad..." ANTES de los botones
+                botonesHTML = '<p class="qty-label">Elige la cantidad de rosas para tu ramo:</p><div class="qty-selector-container">';
+                
+                cantidades.forEach((cant, index) => {
+                    const uniqueId = `prod-${prod.id}-opt-${index}`;
+                    botonesHTML += `
+                        <div class="radio-btn-group">
+                            <input type="radio" name="seleccion_global_zaisa" value="${cant}" id="${uniqueId}" data-prod-name="${prod.titulo}" />
+                            <label for="${uniqueId}">
+                                <span>${cant}</span>
+                                ${svgBars}
+                            </label>
+                        </div>
+                    `;
+                });
+                botonesHTML += '</div>';
+            }
+
+            allCardsHTML += `
+                <div class="card" id="card-${prod.id}">
+                    <div class="card-img" style="background-image: url('imagenes/rosa${prod.id}.jpeg');"></div>
+                    <div class="card-info">
+                        <h3>${prod.titulo}</h3>
+                        ${botonesHTML}
+                        <a href="https://wa.me/522871251442?text=Hola,%20me%20interesa%20el%20${encodeURIComponent(prod.titulo)}" class="card-cta" id="cta-${prod.id}" target="_blank">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            `;
+        });
+        gridContainer.innerHTML = allCardsHTML;
+
+        // --- CAMBIO CLAVE 2: INICIALIZACIÓN GLOBAL ---
+        const allRadioGroups = document.querySelectorAll(".radio-btn-group");
+        new RadioButtonEffect(allRadioGroups);
+
+
+        // Función WhatsApp
+        function updateWhatsAppLink(radioInput) {
+            const prodName = radioInput.getAttribute("data-prod-name");
+            const cantidad = radioInput.value;
+            const card = radioInput.closest('.card');
+            const ctaBtn = card.querySelector('.card-cta');
+            
+            const mensaje = `Hola, me interesa el ${prodName} con la cantidad de: ${cantidad === "Pers." ? "Personalizada" : cantidad}`;
+            ctaBtn.href = `https://wa.me/522871251442?text=${encodeURIComponent(mensaje)}`;
+        }
+
+        // --- 3. FONDO ANIMADO Y EXTRAS ---
+        const imageContainer = document.getElementById("image-container");
+        for (let i = 1; i <= 20; i++) {
             const img = document.createElement("img");
-            img.src = path;
+            img.src = `imagenes/rosa${i}.jpeg`;
             img.classList.add("image-item");
-
-            // Posición aleatoria dentro del contenedor (usando % en lugar de vw/vh)
-            img.style.left = `${Math.random() * 80 + 5}%`; // Entre 5% y 85%
-            img.style.top = `${Math.random() * 70 + 10}%`;  // Entre 10% y 80%
-
-            // Aplicar animaciones
+            img.style.left = `${Math.random() * 90}%`; 
+            img.style.top = `${Math.random() * 80 + 5}%`; 
             img.style.animation = `float ${Math.random() * 4 + 3}s ease-in-out infinite, rotateAfterFloat 3s ease-in-out ${Math.random() * 2 + 2}s 1`;
-
-            imageContainer.appendChild(img);
-
-            // Pausar animación al pasar el mouse
-            img.addEventListener("mouseover", () => {
-                img.style.animationPlayState = "paused";
-            });
-
-            img.addEventListener("mouseout", () => {
-                img.style.animationPlayState = "running";
-            });
-
-            // Abrir lightbox al hacer clic
+            
+            img.addEventListener("mouseover", () => img.style.animationPlayState = "paused");
+            img.addEventListener("mouseout", () => img.style.animationPlayState = "running");
             img.addEventListener("click", (e) => {
                 e.stopPropagation();
                 openLightbox(img.src);
             });
-        });
+            imageContainer.appendChild(img);
+        }
 
-        // Función para abrir Lightbox
         function openLightbox(imageSrc) {
             const lightboxOverlay = document.createElement("div");
             lightboxOverlay.classList.add("lightbox-overlay");
-
             const lightboxImage = document.createElement("img");
             lightboxImage.src = imageSrc;
             lightboxImage.classList.add("lightbox-image");
-
-            // Cerrar al hacer clic
-            lightboxOverlay.addEventListener("click", () => {
-                document.body.removeChild(lightboxOverlay);
-            });
-
+            lightboxOverlay.addEventListener("click", () => document.body.removeChild(lightboxOverlay));
             lightboxOverlay.appendChild(lightboxImage);
             document.body.appendChild(lightboxOverlay);
         }
 
-        // Lógica para el acordeón FAQ (Cierre suave)
         document.querySelectorAll('.faq-item summary').forEach(summary => {
             summary.addEventListener('click', (e) => {
                 const details = summary.parentElement;
                 if (details.hasAttribute('open')) {
-                    e.preventDefault(); // Prevenir el cierre inmediato
+                    e.preventDefault();
                     details.classList.add('closing');
                     setTimeout(() => {
                         details.removeAttribute('open');
                         details.classList.remove('closing');
-                    }, 500); // Tiempo igual a la animación CSS
+                    }, 500);
                 }
             });
         });
