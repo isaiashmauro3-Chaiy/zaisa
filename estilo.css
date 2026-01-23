@@ -1,66 +1,73 @@
 :root {
     --azul-claro: #b5dce3;
     --rosa-salmon: #f7b09e;
-    --texto: #333;
+    --rosa-salmon-fuerte: #d68c7a; /* Nuevo: Para que el texto rosa se lea bien */
+    --texto: #111; /* Nuevo: Texto casi negro para máximo contraste */
 }
 
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     color: var(--texto);
+    font-weight: 500; /* Letra un poco más gruesa en general */
 }
 
-/* --- Estilos del Header (Logo a la izquierda) --- */
+/* --- Estilos del Header (RESPONSIVO Y VISIBLE) --- */
 header {
-    padding: 20px 0;
+    padding: 15px 0;
     background-color: white;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .header-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 40px;
-    position: relative; /* Esto permite que el logo se ubique respecto a este contenedor */
+    padding: 0 20px;
+    position: relative;
 }
 
-/* Ajustamos el wrapper para que sea el que centra el contenido */
+/* En pantallas grandes */
 .brand-wrapper {
     display: flex;
-    justify-content: center; /* Centra el bloque de texto en el medio */
+    justify-content: center;
     align-items: center;
     min-height: 100px;
 }
 
 .logo-img {
-    position: absolute; /* Sacamos el logo del flujo para que no empuje al texto */
-    left: 40px;         /* Lo pegamos a la izquierda del contenedor */
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
     max-width: 90px;
     height: auto;
 }
 
 .brand-text {
-    text-align: center; /* Centra el H1 y la Tagline entre sí */
+    text-align: center;
+    padding: 0 20px;
 }
 
 .brand-text h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 2.2rem; /* Tamaño elegante */
+    font-size: 2.4rem; /* Un poco más grande */
     margin: 0;
     letter-spacing: 3px;
-    color: #333;
+    color: #000; /* Negro puro */
     text-transform: uppercase;
+    font-weight: 700; /* Negrita */
 }
 
 .tagline {
     margin: 5px 0 0 0;
-    font-size: 0.9rem;
-    color: #f7b09e; /* El rosa de tu logo */
+    font-size: 1rem; /* Más grande */
+    color: var(--rosa-salmon-fuerte); /* Color más intenso */
     font-style: italic;
     letter-spacing: 1px;
+    font-weight: 600; /* Más gruesa */
 }
 
-/* --- Resto del diseño --- */
+/* --- Hero Section (Texto más visible) --- */
 .hero {
     background-color: var(--azul-claro);
     height: 200px;
@@ -72,27 +79,24 @@ header {
 
 .hero h2 {
     font-family: 'Playfair Display', serif;
-    color: #446a71;
+    color: #2a4b52; /* Verde más oscuro para contraste */
     padding: 0 20px;
+    font-weight: 700; /* Más negrita */
+    font-size: 1.8rem;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.4); /* Pequeña sombra para resaltar */
 }
 
-/* Animación para el texto principal */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-        .hero-content h2 {
-            opacity: 0; /* Comienza invisible */
-            animation: fadeInUp 1.2s ease-out forwards; /* Duración de 1.2 segundos */
-        }
+.hero-content h2 {
+    opacity: 0;
+    animation: fadeInUp 1.2s ease-out forwards;
+}
 
+/* --- Contenedor Principal --- */
 .container {
     max-width: 1100px;
     margin: 50px auto;
@@ -103,6 +107,9 @@ header {
     text-align: center;
     margin-bottom: 40px;
     font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #000;
+    font-weight: 700;
 }
 
 .grid {
@@ -111,16 +118,18 @@ header {
     gap: 30px;
 }
 
+/* --- Estilos de las Tarjetas (Card) --- */
 .card {
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Sombra un poco más marcada */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
 }
 
 .card:hover {
-    transform: translateY(-10px); /* Mueve la tarjeta hacia arriba */
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15); /* Aumenta la sombra */
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
 }
 
 .card-img {
@@ -131,21 +140,125 @@ header {
 }
 
 .card-info {
-    padding: 15px;
+    padding: 20px 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-info h3 {
+    font-weight: 700; /* Título del producto en negrita */
+    color: #000;
+    margin-bottom: 15px;
+}
+
+/* --- Estilos de los Botones de Cantidad --- */
+.qty-selector-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    margin: 10px 0 20px 0;
+}
+
+.radio-btn-group {
+    position: relative;
+    display: inline-block;
+}
+
+.radio-btn-group input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+.radio-btn-group label {
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    font-weight: 600; /* Texto del botón más grueso */
+    font-style: italic;
+    align-items: center;
+    justify-content: center;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.9rem; /* Un poco más grande */
+    height: 35px;
+    padding: 0 15px;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5); /* Sombra al texto blanco para que resalte */
+}
+
+/* Nuevo estilo para la frase "Elige la cantidad..." */
+.qty-label {
+    font-size: 0.85rem;
+    color: #555;
+    margin: 10px 0 5px 0;
+    font-weight: 600;
     text-align: center;
 }
 
+/* Fondo del botón */
+.radio-btn-group label::before {
+    background-color: #24252c;
+    background-image: repeating-linear-gradient(0deg, #181a29, #181a29 1px, #202436 1px, #202436 2px);
+    border-radius: 10px;
+    content: "";
+    height: 100%;
+    position: absolute;
+    left: 0; top: 0;
+    overflow: hidden;
+    transform: skew(-15deg);
+    transition: box-shadow 700ms;
+    width: 100%;
+    z-index: -1;
+}
+
+/* Efecto selección */
+.radio-btn-group input[type="radio"]:checked + label::before,
+.radio-btn-group input[type="radio"]:focus + label::before {
+    box-shadow: 0 0 15px 1px #0763f7;
+}
+
+.radio-btn-group input[type="radio"]:checked + label span {
+    color: #ff4d79; /* Rosa neón más visible */
+    font-weight: 800;
+}
+
+.radio-btn-group label span {
+    transition: color 350ms;
+    z-index: 2;
+}
+
+/* SVG Animado */
+.radio-btn-group label svg {
+    border-radius: 10px;
+    overflow: hidden;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    transform: skew(-15deg);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.radio-btn-group label svg .blue rect { fill: #05eafa; shape-rendering: crispEdges; mix-blend-mode: color-dodge; }
+.radio-btn-group label svg .pink rect { fill: #ff6bd3; shape-rendering: crispEdges; }
+
+/* --- Botón CTA (WhatsApp) --- */
 .card-cta {
     display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
+    padding: 12px 25px;
     background-color: #25D366;
     color: white;
     text-decoration: none;
     border-radius: 25px;
-    font-size: 0.9rem;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 700; /* Negrita */
     transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .card-cta:hover {
@@ -153,190 +266,7 @@ header {
     transform: translateY(-2px);
 }
 
-.cta-container {
-    text-align: center;
-    margin-top: 50px;
-}
-
-.cta-button {
-    background-color: var(--rosa-salmon);
-    background-color: #25D366;
-    color: white;
-    padding: 15px 35px;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    display: inline-flex;       /* Para alinear icono y texto */
-    align-items: center;        /* Centrado vertical */
-    gap: 10px;                  /* Espacio entre icono y texto */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suaviza la animación */
-}
-
-.cta-button:hover {
-    transform: scale(1.05);     /* Crece un 5% */
-    transform: translateY(-5px); /* Se eleva suavemente sin deformar el logo */
-    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4); /* Sombra suave color verde */
-    background-color: #128C7E;
-}
-
-footer {
-    text-align: center;
-    padding: 40px;
-    background: #fafafa;
-    margin-top: 50px;
-}
-
-/* --- Sección Galería Mágica (Adaptada) --- */
-#galeria-rosas {
-    position: relative;
-    height: 600px;
-    background-color: #1a1919; /* Fondo oscuro para resaltar las fotos */
-    overflow: hidden;
-    margin-top: 60px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-
-#galeria-rosas .section-title {
-    color: white;
-    position: relative;
-    z-index: 20;
-    padding-top: 30px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-}
-
-#image-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* Permite hacer clic a través del contenedor si fuera necesario */
-}
-
-.image-item {
-    position: absolute;
-    width: 120px;
-    height: auto;
-    border-radius: 10px;
-    cursor: pointer;
-    pointer-events: auto;
-    z-index: 10;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-    transition: transform 0.3s ease;
-}
-
-.image-item:hover {
-    animation-play-state: paused;
-    transform: scale(1.1);
-    z-index: 15;
-}
-
-/* Lightbox Overlay */
-.lightbox-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10000;
-}
-
-.lightbox-image {
-    max-width: 90%;
-    max-height: 90%;
-    border: 2px solid white;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-}
-
-/* Animaciones */
-@keyframes float {
-    0% { transform: translate(0, 0); }
-    50% { transform: translate(30px, 30px); }
-    100% { transform: translate(0, 0); }
-}
-
-@keyframes rotateAfterFloat {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* --- Estilos de la Tarjeta Central (Tilt Card) --- */
-.center-card-container {
-    position: absolute;
-    top: 55%; /* Un poco más abajo del título */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 5; /* Debajo de las fotos flotantes pero encima del fondo */
-    perspective: 1200px;
-}
-
-.tilt-card {
-    width: 220px;
-    height: 300px;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.4s ease-in-out, box-shadow 0.3s ease;
-    cursor: pointer;
-    border-radius: 10px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-}
-
-.tilt-card:hover {
-    transform: scale(1.1) rotateX(15deg) rotateY(15deg);
-    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.6);
-}
-
-.tilt-card-front,
-.tilt-card-back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    backface-visibility: hidden;
-    border-radius: 10px;
-    background-size: cover;
-    background-position: center;
-    transition: transform 0.3s ease;
-}
-
-.tilt-card-back {
-    transform: rotateY(180deg);
-}
-
-.tilt-card:hover .tilt-card-front {
-    transform: rotateY(180deg);
-}
-
-.tilt-card:hover .tilt-card-back {
-    transform: rotateY(360deg);
-}
-
-/* --- Redes Sociales en Footer --- */
-.social-links {
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.social-icon {
-    color: #555;
-    transition: transform 0.3s ease, color 0.3s ease;
-    display: inline-block;
-}
-
-.social-icon:hover {
-    color: #E1306C; /* Color oficial de Instagram */
-    transform: scale(1.2);
-}
-
-/* --- Sección Por Qué Elegirnos --- */
+/* --- Why Choose Section --- */
 .why-choose {
     margin: 80px 0;
 }
@@ -354,134 +284,184 @@ footer {
     border-radius: 15px;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0; /* Comienza invisible para la animación */
-    animation: fadeInUp 0.8s ease-out forwards; /* Usa la animación existente */
-    border: 1px solid #f0f0f0;
+    transition: transform 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+    border: 1px solid #e0e0e0;
 }
 
 .feature-item:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(247, 176, 158, 0.2); /* Sombra color salmón suave */
+    box-shadow: 0 15px 30px rgba(247, 176, 158, 0.3);
     border-color: var(--rosa-salmon);
 }
 
+.feature-item h3 {
+    font-weight: 700;
+    color: #000;
+    margin: 15px 0 10px 0;
+}
+
+.feature-item p {
+    color: #444; /* Gris oscuro */
+    font-weight: 500;
+}
+
 .feature-icon {
-    color: var(--rosa-salmon);
+    color: var(--rosa-salmon-fuerte); /* Icono más visible */
     margin-bottom: 20px;
     transition: transform 0.3s ease;
-    background-color: #fff0eb; /* Fondo circular suave */
-    width: 80px;
-    height: 80px;
+    background-color: #fff0eb;
+    width: 80px; height: 80px;
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; justify-content: center;
     border-radius: 50%;
 }
 
-.feature-item:hover .feature-icon {
-    transform: scale(1.2); /* El icono crece al pasar el mouse */
-}
+.feature-item:hover .feature-icon { transform: scale(1.2); }
+.feature-icon svg { width: 40px; height: 40px; }
 
-.feature-icon svg {
-    width: 40px;
-    height: 40px;
-}
-
-/* --- Sección FAQ (Preguntas Frecuentes) --- */
-.faq-section {
-    margin: 80px 0;
-}
-
-.faq-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
+/* --- FAQ (Texto más visible) --- */
+.faq-section { margin: 80px 0; }
+.faq-container { max-width: 800px; margin: 0 auto; }
 
 .faq-item {
     background-color: white;
     border-radius: 12px;
     margin-bottom: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     overflow: hidden;
-    transition: box-shadow 0.3s ease;
+    border: 1px solid #eee;
 }
 
 .faq-item summary {
     padding: 20px;
     cursor: pointer;
-    font-weight: 600;
-    list-style: none; /* Quita el triángulo por defecto */
+    font-weight: 700; /* Preguntas en Negrita */
+    list-style: none;
     position: relative;
-    color: #333;
+    color: #000; /* Negro */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 1.1rem;
 }
 
-.faq-item summary::-webkit-details-marker {
-    display: none; /* Oculta marcador en Chrome/Safari */
-}
+.faq-item summary::-webkit-details-marker { display: none; }
 
 .faq-item summary::after {
     content: '+';
-    font-size: 1.5rem;
-    color: var(--rosa-salmon);
+    font-size: 1.8rem;
+    color: var(--rosa-salmon-fuerte);
     transition: transform 0.3s ease;
-    font-weight: 300;
+    font-weight: 400;
 }
 
-.faq-item[open] summary::after {
-    transform: rotate(45deg); /* Gira el + para convertirlo en x */
-}
+.faq-item[open] summary::after { transform: rotate(45deg); }
 
 .faq-item p {
-    padding: 0 20px 20px 20px;
+    padding: 0 20px 25px 20px;
     margin: 0;
-    color: #666;
+    color: #333; /* Respuestas en gris muy oscuro */
     line-height: 1.6;
     border-top: 1px solid #f0f0f0;
-    overflow: hidden; /* Necesario para que el texto no se salga mientras crece la caja */
+    overflow: hidden;
+    font-weight: 500;
 }
 
-/* Animación suave al abrir la respuesta */
-.faq-item[open] p {
-    animation: faqOpen 0.5s ease-out forwards;
-}
-
-/* Animación suave al cerrar la respuesta */
-.faq-item[open].closing p {
-    animation: faqClose 0.5s ease-in forwards;
-}
+.faq-item[open] p { animation: faqOpen 0.5s ease-out forwards; }
+.faq-item[open].closing p { animation: faqClose 0.5s ease-in forwards; }
 
 @keyframes faqOpen {
-    0% {
-        opacity: 0;
-        transform: translateY(-10px);
-        max-height: 0;
-        padding-top: 0;
-        padding-bottom: 0;
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-        max-height: 300px; /* Altura suficiente para que quepa el texto */
-        padding-bottom: 20px;
-    }
+    0% { opacity: 0; transform: translateY(-10px); max-height: 0; }
+    100% { opacity: 1; transform: translateY(0); max-height: 300px; padding-bottom: 20px; }
+}
+@keyframes faqClose {
+    0% { opacity: 1; transform: translateY(0); max-height: 300px; padding-bottom: 20px; }
+    100% { opacity: 0; transform: translateY(-10px); max-height: 0; padding-top: 0; padding-bottom: 0; }
 }
 
-@keyframes faqClose {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
-        max-height: 300px;
-        padding-bottom: 20px;
+/* --- Galería --- */
+#galeria-rosas {
+    position: relative;
+    height: 600px;
+    background-color: #111; /* Fondo casi negro */
+    overflow: hidden;
+    margin-top: 60px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+#galeria-rosas .section-title {
+    color: white;
+    position: relative;
+    z-index: 20;
+    padding-top: 30px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+#image-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+
+.image-item {
+    position: absolute; width: 120px; height: auto;
+    border-radius: 10px; cursor: pointer; pointer-events: auto; z-index: 10;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+}
+.image-item:hover { animation-play-state: paused; transform: scale(1.1); z-index: 15; }
+
+/* Lightbox */
+.lightbox-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 10000;
+}
+.lightbox-image { max-width: 90%; max-height: 90%; border: 2px solid white; box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+@keyframes float { 0% { transform: translate(0, 0); } 50% { transform: translate(30px, 30px); } 100% { transform: translate(0, 0); } }
+@keyframes rotateAfterFloat { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* Tilt Card */
+.center-card-container {
+    position: absolute; top: 55%; left: 50%;
+    transform: translate(-50%, -50%); z-index: 5; perspective: 1200px;
+}
+.tilt-card {
+    width: 220px; height: 300px; position: relative;
+    transform-style: preserve-3d; transition: transform 0.4s ease-in-out, box-shadow 0.3s ease;
+    cursor: pointer; border-radius: 10px; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+.tilt-card:hover { transform: scale(1.1) rotateX(15deg) rotateY(15deg); box-shadow: 0 25px 45px rgba(0, 0, 0, 0.6); }
+.tilt-card-front, .tilt-card-back {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    backface-visibility: hidden; border-radius: 10px;
+    background-size: cover; background-position: center; transition: transform 0.3s ease;
+}
+.tilt-card-back { transform: rotateY(180deg); }
+.tilt-card:hover .tilt-card-front { transform: rotateY(180deg); }
+.tilt-card:hover .tilt-card-back { transform: rotateY(360deg); }
+
+/* Footer */
+footer { text-align: center; padding: 40px; background: #fafafa; margin-top: 50px; border-top: 1px solid #eee; }
+.social-links { margin-bottom: 20px; display: flex; justify-content: center; gap: 20px; }
+.social-icon { color: #333; transition: transform 0.3s ease, color 0.3s ease; display: inline-block; }
+.social-icon:hover { color: #E1306C; transform: scale(1.2); }
+
+/* --- RESPONSIVE (ARREGLO DEL LOGO) --- */
+@media (max-width: 768px) {
+    .brand-wrapper {
+        flex-direction: column;
+        gap: 10px;
+        min-height: auto;
+        padding: 10px 0;
     }
-    100% {
-        opacity: 0;
-        transform: translateY(-10px);
-        max-height: 0;
-        padding-top: 0;
-        padding-bottom: 0;
+    .logo-img {
+        position: static;
+        transform: none;
+        left: auto; top: auto;
+        max-width: 70px;
+        margin-bottom: 5px;
     }
+    .brand-text h1 { font-size: 1.8rem; }
+    .tagline { font-size: 0.9rem; }
 }
